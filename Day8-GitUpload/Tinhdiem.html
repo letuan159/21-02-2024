@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="t">
+  <input type="text" id="l">
+  <input type="text" id="h">
+  <select name="Chọn khu vực" id="area">
+    <option value="0.75">KV1</option>
+    <option value="0.5">KV2-NT</option>
+    <option value="0.25">KV2</option>
+    <option value="0">KV3</option>
+  </select>
+  <button onclick="tinh()">Tinh diem</button>
+  <p id="result"></p>
+  <script>
+    function tinh() {
+      let t = +document.getElementById("t").value;
+      let l = +document.getElementById("l").value;
+      let h = +document.getElementById("h").value;
+      document.getElementById("result").innerText = (t+l+h) + +document.getElementById("area").value;
+    }
+  </script>
+</body>
+</html>
