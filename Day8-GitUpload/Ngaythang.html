@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="m"> Nhập tháng
+  <button onclick="change()">Quy đổi</button>
+  <p id="result"></p>
+  <script>
+    function change() {
+      let m = parseInt(document.getElementById("m").value); 
+      let c = 0;
+      if (m > 0 && m < 13) {
+        c = m;
+      }
+      switch (c) {
+        case 0:
+          document.getElementById("result").innerText = "Vui lòng nhập tháng trong khoảng từ 1-12";
+          break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+          document.getElementById("result").innerText = "Tháng " + c + " có 31 ngày";
+          break;
+        case 2:
+          document.getElementById("result").innerText = "Tháng " + c + " có 28 ngày";
+          break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          document.getElementById("result").innerText = "Tháng " + c + " có 30 ngày";
+          break;
+        default:
+          document.getElementById("result").innerText = "Vui lòng nhập tháng trong khoảng từ 1-12";
+      }
+    }
+  </script>
+</body>
+</html>
