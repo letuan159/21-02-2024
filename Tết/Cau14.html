@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="time">
+  <button onclick="time()">Tinh</button>
+  <p id="ketqua"></p>
+  <script>
+    function time() {
+      let t = parseFloat(document.getElementById("time").value);
+      tien = 0;
+      if (t<=0) {
+        document.getElementById("ketqua").innerText = "Vui lòng nhập thời gian lớn hơn 0";
+      } else {
+        if (t < 2) {
+        tien = t*1000;
+        document.getElementById("ketqua").innerText = tien;
+        } else {
+          if (t <= 5 && t >=2) {
+          tien = 5000*t;
+          document.getElementById("ketqua").innerText = tien;
+          } else {
+            if (t>5) {
+              tien = 7000*t;
+              document.getElementById("ketqua").innerText = tien;
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

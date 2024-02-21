@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="Ten">
+  <button onclick="In()">In</button>
+  <p id="text"></p>
+  <script>
+    function In() {
+      let a = document.getElementById("Ten").value;
+      document.getElementById("text").innerText= a;
+    }
+  </script>
+</body>
+</html>

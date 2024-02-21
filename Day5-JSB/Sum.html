@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <input type="text" id="a" placeholder="nhap a">
+    <input type="text" id="b" placeholder="nhap b">
+    <input type="button" onclick="sum()" value="Tinh tong">
+    <h1 id="result"></h1>
+    <script>
+      function sum() {
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        document.getElementById("result").innerText = "Tổng: " + (a+b);
+      }
+    </script>
+</body>
+</html>

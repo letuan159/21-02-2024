@@ -1,0 +1,20 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+th{
+  background-color: red;
+}
+
+
+.name, .sothich, .email {
+  color: blue;
+}
+.name, .email {
+  float: right;
+}
+
+button{
+  float: left;
+}
