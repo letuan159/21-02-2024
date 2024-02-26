@@ -9,20 +9,28 @@
   <input type="text" id="a">
   <input type="text" id="b">
   <input type="text" id="c">
-  <h1 id="sochanlon"></h1>
   <button onclick="chanle()">In ra</button>
+  <h1 id="sochanlon"></h1>
   <script>
     function chanle() {
       let a = +document.getElementById("a").value;
       let b = +document.getElementById("b").value;
-      let c = +document.getElementById("c").value;
-      let chan="";
-      for (let i=a; i<=b; i++) {
-        if (i%2==0 && i > c) {
-          chan+=i + " ";
+      if (b < a) {
+        document.getElementById("sochanlon").innerHTML = "Vui lòng nhập a > b";
+      } else {
+        let c = +document.getElementById("c").value;
+        if (c < a || c > b) {
+          document.getElementById("sochanlon").innerHTML = "Vui lòng nhập c nằm trong khoảng từ a -> b";
+        } else {
+          let chan="";
+          for (let i=a; i<=b; i++) {
+            if (i%2==0 && i > c) {
+              chan+=i + " ";
+            }
+          }
+          document.getElementById("sochanlon").innerHTML = chan;
         }
       }
-      document.getElementById("sochanlon").innerHTML = chan;
     }
   </script>
 </body>

@@ -8,28 +8,21 @@
 <body>
   <input type="text" id="a">
   <input type="text" id="b">
-  <button onclick="chanle()">In ra</button>
-  <h1 id="chan"></h1>
-  <h2 id="le"></h2>
+  <button onclick="tich()">In ra</button>
+  <h1 id="tich"></h1>
   <script>
-    function chanle() {
+    function tich() {
       let a = +document.getElementById("a").value;
       let b = +document.getElementById("b").value;
       if (b < a) {
         document.getElementById("tich").innerHTML = "Vui lòng nhập a > b";
       } else {
-        let chan="";
-        let le="";
+        let tich=1;
         for (let i=a; i<=b; i++) {
-          if (i%2==0) {
-            chan+=i + " ";
-          } else {
-          le+=i + " ";
-          }
+          tich*=i;
         }
-        document.getElementById("chan").innerHTML = chan;
-        document.getElementById("le").innerHTML = le;
-      }
+        document.getElementById("tich").innerHTML = tich;
+      }   
     }
   </script>
 </body>
