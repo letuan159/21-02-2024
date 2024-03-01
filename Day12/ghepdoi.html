@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let x = +prompt("Nhập số lượng nam");
+    let y = +prompt("Nhập số lượng nữ");
+    if (x==y) {
+      alert(x + " 0");
+    } else {
+      if (x>y) {
+        let dt = Math.ceil(y/x);
+        alert (y + " " + dt);
+      } else {
+        let dt = Math.ceil(x/y);
+        alert (x + " " + dt);
+      }
+    }
+  </script>
+</body>
+</html>
