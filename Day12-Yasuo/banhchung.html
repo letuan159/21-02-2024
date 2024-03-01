@@ -38,41 +38,57 @@
         i31 = i1;
       } else {
         if (i1 > i3) {
-          capi1thua = i1 - i3;
+          capi1thua = i1 - i3;//1
           i31 = i3;
         } else {
           i31= i3;
         }
       }
-      bc += i31 + capi3thua;
+      bc += i31 + capi3thua; //4
       if (capi1thua == 0) {
-        bc += Math.floor(i2/2);
+        bc += Math.ceil(i2/2);
       } else {
         if (capi1thua >= 4) {
           bc += parseInt(capi1thua/4);
           capi1thua %= 4;
           if (capi1thua > 2) {
             i2++;
-            capi1thua = 1;
+            capi1thua--;
+            capi1thua--;
+          } else {
+            if (capi1thua == 2) {
+              i2++;
+              capi1thua = 0;
+            }
           }
           if (i2%2 == 0) {
-            bc += i2/2 +1;
+            bc += i2/2 + capi1thua;
           } else {
-            bc += i2/2;
+            bc += Math.ceil(i2/2);
           }
         } else {
-          if (capi1thua > 2) {
+          if (capi1thua >=2) {
+            if (capi1thua > 2) {
             i2++;
-            capi1thua = 1;
-          }
-          if (i2%2 == 0) {
-            bc += i2/2 +1;
+            capi1thua--;
+            capi1thua--;
+            } 
+            if (i2%2 == 0) {
+              bc += i2/2 +capi1thua;
+            } else {
+              bc += Math.ceil(i2/2);
+            }
           } else {
-            bc += i2/2;
+            alert(i2 + " " +capi1thua);
+            if (i2%2 == 0) {
+              bc += i2/2 +capi1thua;
+            } else {
+              bc += Math.ceil(i2/2);
+            }
           }
         }
       }
-    alert("Số bánh chưng tối thiểu: " + Math.ceil(bc));
+    alert("Số bánh chưng tối thiểu: " + bc);
   </script>
 </body>
 </html>
