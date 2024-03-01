@@ -44,19 +44,7 @@
           i31= i3;
         }
       }
-      bc += i31 + Math.floor((capi3thua*3)/4);
-      capi3thua = (capi3thua*3)%4;
-      if (capi3thua == 3) {
-        bc ++;
-      } else {
-        if (capi3thua == 2) {
-          i2++;
-        } else {
-          if (capi3thua == 1) {
-            capi1thua++;
-          } 
-        }
-      }
+      bc += i31 + capi3thua;
       if (capi1thua == 0) {
         bc += Math.floor(i2/2);
       } else {
