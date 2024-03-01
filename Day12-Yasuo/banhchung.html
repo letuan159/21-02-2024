@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let nhom = [];
+    let bc = 0;
+    let i1 = 0, i2 = 0, i3 = 0, i4 = 0, i31 = 0;
+    let capi1thua = 0, capi3thua = 0, capi2thua = 0;
+    let N = +prompt("Số nhóm");
+    for (let i=1; i<=N; i++) {
+      nhom[i] = +prompt("Nhập số thành viên cho nhóm thứ " + i);
+      while (nhom[i] > 4 || nhom[i] < 1) {
+          alert("Vui lòng nhập số thành viên ít nhất 1 và bé hơn hoặc bằng 4");
+          nhom[i] = +prompt("Nhập số thành viên cho nhóm thứ " + i);
+      }
+      if (nhom[i] == 4) {
+        i4++;
+      } else {
+        if (nhom[i] == 3) {
+          i3++;
+        } else {
+          if (nhom[i] == 2) {
+            i2++;
+          } else {
+            i1++;
+          }
+        }
+      }
+    }
+      alert(i1 + " " + i2 + " " + i3 + " " + i4);
+      alert(bc);
+      bc += i4;
+      if (i3 > i1) {
+        capi3thua = i3 - i1;
+        i31 = i1; 
+      } else {
+        if (i1 > i3) {
+          capi1thua = i1 - i3;
+          i31 = i3;
+        } else {
+          i31= i3;
+        }
+      }
+      bc += i31;
+      if (capi1thua == 0) {
+        bc += Math.ceil(i2/2);
+      } else {
+        if (capi1thua >= 4) {
+          bc += parseInt(capi1thua/4);
+          capi1thua %= 4;
+          if (capi1thua > 2) {
+            i2++;
+            capi1thua = 1;
+          }
+          if (i2%2 == 0) {
+            bc += i2/2 +1;
+          } else {
+            bc += i2/2;
+          }
+        } else {
+          if (capi1thua > 2) {
+            i2++;
+            capi1thua = 1;
+          }
+          if (i2%2 == 0) {
+            bc += i2/2 +1;
+          } else {
+            bc += i2/2;
+          }
+        }
+      }
+    alert("Số bánh chưng tối thiểu: " + bc);
+  </script>
+</body>
+</html>
