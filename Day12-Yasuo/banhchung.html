@@ -32,12 +32,10 @@
         }
       }
     }
-      alert(i1 + " " + i2 + " " + i3 + " " + i4);
-      alert(bc);
       bc += i4;
       if (i3 > i1) {
         capi3thua = i3 - i1;
-        i31 = i1; 
+        i31 = i1;
       } else {
         if (i1 > i3) {
           capi1thua = i1 - i3;
@@ -46,9 +44,21 @@
           i31= i3;
         }
       }
-      bc += i31;
+      bc += i31 + Math.floor((capi3thua*3)/4);
+      capi3thua = (capi3thua*3)%4;
+      if (capi3thua == 3) {
+        bc ++;
+      } else {
+        if (capi3thua == 2) {
+          i2++;
+        } else {
+          if (capi3thua == 1) {
+            capi1thua++;
+          } 
+        }
+      }
       if (capi1thua == 0) {
-        bc += Math.ceil(i2/2);
+        bc += Math.floor(i2/2);
       } else {
         if (capi1thua >= 4) {
           bc += parseInt(capi1thua/4);
@@ -74,7 +84,7 @@
           }
         }
       }
-    alert("Số bánh chưng tối thiểu: " + bc);
+    alert("Số bánh chưng tối thiểu: " + Math.ceil(bc));
   </script>
 </body>
 </html>
