@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let xyz = [5, 5, 5, 4, 3, 2, 1, 4, 3, 2, 1, 6, 4,2,2,2,6];
+    let abc = [];
+    let max = 0;
+    let t = 0;
+    for (let i = 0; i < xyz.length; i++) {
+      if (xyz[i] > max) {
+        t = 0;
+        abc[t] = i;
+        max = xyz[i];
+        t++;
+      } else {
+        if (xyz[i] == max) {
+          abc[t] = i;
+          t++;
+        }
+      }
+    }
+    document.write("Max = " + max + "<br>");
+    for (i=0; i < t; i++) {
+      document.write(abc[i] + " ");
+    }
+  </script>
+</body>
+</html>
