@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [1, 2, 3, 2, 3, 4, 5, 7, 1, 2, 3, 6, 8, 9, 12, 17];
+    let vtt = 0;
+    let vt = 0;
+    let d = 1;
+    let dp = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > arr[i-1]) {
+        d++;
+        vtt = i;
+      }
+      if (arr[i] <= arr[i-1] || (arr[i] == arr[arr.length])) {
+        if (d > dp && dp != 0) {
+          vt = dp;
+          dp = d;
+          vtt = i;
+          d = 1;
+        } else {
+          if ( dp == 0) {
+            dp = d;
+            vtt = i;
+            d = 1;
+          }
+        }
+      } 
+    }
+    document.write(vt + " " + dp + "<br>");
+    for (let i = vt; i < vt+dp; i++) {
+      document.write(i + " ");
+    }
+    document.write("<br>")
+    for (let i = vt; i < vt+dp; i++) {
+      document.write(arr[i] + " ");
+    }
+  </script>
+</body>
+</html>
