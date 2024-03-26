@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img id="x" src="https://pngimg.com/uploads/football/football_PNG28463.png" alt="" 
+  style=
+  "width: 100px;
+  top: 100px;
+  left: 200px; 
+  position: absolute;">
+  <button onclick="phai()">
+    Sang phải
+  </button>
+  <script>
+    function phai() {
+      let xx = document.getElementById("x");
+      xx.style.left = parseInt(xx.style.left) + 20 + 'px';
+    }
+  </script>
+</body>
+</html>

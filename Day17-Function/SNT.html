@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    a = +prompt("Nhập số: ");
+    function kiemtra(x) {
+      let c = +1;
+      for (let i = 2; i <= Math.sqrt(x); i++) {
+        if (x%i==0) {
+          c = +0;
+          break;
+        }
+      }
+      if (x <= 1) {
+        c = +0;
+      }
+      return c;
+    }
+    function timSNT(x) {
+      for (let i = 2; i<=x; i++) {
+        if (kiemtra(i) == 1) {
+          document.write(i + " ");
+        }
+      }
+    }
+    if (kiemtra(a) == 1) {
+        document.write(a + " là số nguyên tố" + "<br>");
+      } else {
+        document.write(a + " Không phải là số nguyên tố" + "<br>");
+      }
+    timSNT(a);
+  </script>
+</body>
+</html>

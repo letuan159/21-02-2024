@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img id="x" src="https://pngimg.com/uploads/football/football_PNG28463.png" alt="" 
+  style=
+  "width: 100px;
+  top: 0px;
+  left: 0px; 
+  margin: 0;
+  position: absolute;">
+  <script>
+    let xx = document.getElementById("x");
+    leftDef = parseInt(xx.style.left);
+    topDef = parseInt(xx.style.top);
+    setInterval(() => {
+      let xx = document.getElementById("x");
+      if (parseInt(xx.style.left) <= window.innerWidth - 100 && parseInt(xx.style.top) == 0) {
+        xx.style.left = parseInt(xx.style.left) + 5 + "px";
+      }
+      if (parseInt(xx.style.left) >= window.innerWidth - 100 && parseInt(xx.style.top) <= window.innerHeight - 100) {
+        xx.style.top = parseInt(xx.style.top) + 5 + "px";
+      }
+      if (parseInt(xx.style.left) >= 0 && parseInt(xx.style.top) >= window.innerHeight - 100) {
+        xx.style.left = parseInt(xx.style.left) - 5 + "px";
+      }
+      if (parseInt(xx.style.left) == 0 && parseInt(xx.style.top) >= 0) {
+        xx.style.top = parseInt(xx.style.top) - 5 + "px";
+      }
+    }, 1);
+  </script>
+</body>
+</html>

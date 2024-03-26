@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [2, 9, 7, 2, 12, 9, 8,10,10,20,20];
+    max = arr[0]*arr[1];
+    for (let i=0; i<arr.length-1;i++) {
+      for (let j=i+1; j < arr.length; j++) {
+        if (max < arr[i]*arr[j]) {
+          max = arr[i]*arr[j];
+        }
+      }
+    }
+    document.write("Tích lớn nhất là: " + max);
+  </script>
+</body>
+</html>

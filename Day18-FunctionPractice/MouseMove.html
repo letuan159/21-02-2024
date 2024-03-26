@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .trochoi {
+      background-color: pink;
+      width: 400px;
+      height: 500px;  
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bullet {
+      position: absolute;
+      width: 30px; /* Kích thước của viên đạn */
+      height: 30px;
+      background-image: url('bullet.png'); /* Hình ảnh đạn */
+      background-size: cover;
+    }
+
+    .chicken {
+      position: absolute;
+      width: 40px; /* Kích thước của chicken */
+      height: 40px;
+      background-image: url('chicken.png'); /* Hình ảnh chicken */
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="trochoi">
+    <img id="plane" src="plane.png" alt="" 
+    style=
+    "width: 80px;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;">
+  </div>
+
+  <script>
+    let plane = document.getElementById("plane");
+    let container = document.querySelector('.trochoi');
+
+    container.addEventListener('mousemove', function(event) {
+      let x = event.clientX;
+      let y = event.clientY;
+      if (isMouseInsideContainer(event, container)) {
+        plane.style.left = (x - plane.offsetWidth/2) + 'px';
+        plane.style.top = (y - plane.offsetHeight/2) + 'px';
+      }
+    });
+
+    function isMouseInsideContainer(event, container) {
+      let rect = container.getBoundingClientRect();
+      return (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+      );
+    }
+
+    function createChicken() {
+      let chicken = document.createElement('div');
+      chicken.classList.add('chicken');
+      chicken.style.position = 'absolute';
+      chicken.style.top = '0px';
+      chicken.style.left = Math.random() * (container.offsetWidth - 50) + 'px';
+      container.appendChild(chicken);
+
+      let chickenInterval = setInterval(function() {
+        let chickenRect = chicken.getBoundingClientRect();
+        let chickenY = chickenRect.top + 1;
+        chicken.style.top = chickenY + 'px';
+
+        if (chickenY > container.offsetHeight) {
+          clearInterval(chickenInterval);
+          container.removeChild(chicken);
+        }
+      }, 100);
+    }
+
+    setInterval(createChicken, 3000); 
+
+    function shootBullet() {
+      let planeRect = plane.getBoundingClientRect();
+      let bulletY = planeRect.top;
+      let newBullet = document.createElement('div');
+      let bulletX = planeRect.left + (plane.offsetWidth / 2) - 22;
+      newBullet.classList.add('bullet');
+      newBullet.style.left = bulletX + 'px';
+      newBullet.style.top = bulletY + 'px';
+      container.appendChild(newBullet); 
+
+      let bulletInterval = setInterval(function() {
+        bulletY -= 5; 
+        newBullet.style.top = bulletY + 'px';
+
+        // Kiểm tra va chạm giữa bullet và chicken
+        let bullets = document.querySelectorAll('.bullet');
+        let chickens = document.querySelectorAll('.chicken');
+
+        bullets.forEach(bullet => {
+          chickens.forEach(chicken => {
+            let bulletRect = bullet.getBoundingClientRect();
+            let chickenRect = chicken.getBoundingClientRect();
+
+            if (
+              bulletRect.left < chickenRect.right &&
+              bulletRect.right > chickenRect.left &&
+              bulletRect.top < chickenRect.bottom &&
+              bulletRect.bottom > chickenRect.top
+            ) {
+              // Nếu có va chạm, xóa cả bullet và chicken
+              container.removeChild(bullet);
+              container.removeChild(chicken);
+            }
+          });
+        });
+
+        if (bulletY < -newBullet.offsetHeight) {
+          clearInterval(bulletInterval);
+          container.removeChild(newBullet);
+        }
+      }, 25);
+    }
+
+    setInterval(shootBullet, 800); 
+  </script>
+</body>
+</html>
