@@ -15,17 +15,17 @@
     
     .bullet {
       position: absolute;
-      width: 30px; /* Kích thước của viên đạn */
+      width: 30px; 
       height: 30px;
-      background-image: url('bullet.png'); /* Hình ảnh đạn */
+      background-image: url('bullet.png'); 
       background-size: cover;
     }
 
     .chicken {
       position: absolute;
-      width: 40px; /* Kích thước của chicken */
+      width: 30px; 
       height: 40px;
-      background-image: url('chicken.png'); /* Hình ảnh chicken */
+      background-image: url('chicken.png'); 
       background-size: cover;
     }
   </style>
@@ -101,7 +101,6 @@
         bulletY -= 5; 
         newBullet.style.top = bulletY + 'px';
 
-        // Kiểm tra va chạm giữa bullet và chicken
         let bullets = document.querySelectorAll('.bullet');
         let chickens = document.querySelectorAll('.chicken');
 
@@ -116,7 +115,6 @@
               bulletRect.top < chickenRect.bottom &&
               bulletRect.bottom > chickenRect.top
             ) {
-              // Nếu có va chạm, xóa cả bullet và chicken
               container.removeChild(bullet);
               container.removeChild(chicken);
             }
