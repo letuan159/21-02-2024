@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="List()">List</button>
+  <button onclick="Add()">Add</button>
+  <div id="container">
+  </div>
+  <script>
+    let list = ['LD','AT'];
+    let container = document.getElementById('container');
+    function List() { 
+      container.innerHTML = '';
+      list.forEach(item => {
+        container.innerHTML += `<h3>${item} <button onclick="Edit(${list.indexOf(item)})")>Edit</button></h3>`;
+      });
+    }
+    function Add() {
+      container.innerHTML = `<input id="new" placeholder="Nhập sản phẩm"><button onclick="Apply()">Apply</button>`;
+    }
+    Apply = () => {
+      list.push(document.getElementById("new").value);
+      List();
+    }
+    function Edit(index) {
+      const item = list[index];
+      const hasInputAndSave = item.includes('input') && item.includes('Save');
+      if (hasInputAndSave) {
+        list[index] = item.split('<input')[0];
+      } else {
+        list[index] += ` <input id="sua" placeholder="Giá trị mới"> <button onclick="Save(${index})">Save</button> `;
+      }
+      List();
+    }
+    Save = (index) => {
+      const item = list[index];
+      list[index] = item.split('<input')[0];
+      list[index] = document.getElementById('sua').value;
+      List();
+    }
+  </script>
+</body>
+</html>

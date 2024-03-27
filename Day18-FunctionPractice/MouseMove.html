@@ -27,6 +27,7 @@
       height: 40px;
       background-image: url('chicken.png'); 
       background-size: cover;
+      margin: 0;
     }
   </style>
 </head>
@@ -64,13 +65,12 @@
         event.clientY <= rect.bottom
       );
     }
-
     function createChicken() {
       let chicken = document.createElement('div');
       chicken.classList.add('chicken');
       chicken.style.position = 'absolute';
       chicken.style.top = '0px';
-      chicken.style.left = Math.random() * (container.offsetWidth - 50) + 'px';
+      chicken.style.left = Math.random() * (container.offsetWidth - 40) + 'px';
       container.appendChild(chicken);
 
       let chickenInterval = setInterval(function() {
@@ -85,7 +85,7 @@
       }, 100);
     }
 
-    setInterval(createChicken, 3000); 
+    setInterval(createChicken, 2000); 
 
     function shootBullet() {
       let planeRect = plane.getBoundingClientRect();
