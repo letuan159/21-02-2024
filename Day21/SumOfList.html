@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let x = +prompt("Nhập x");
+
+    //check snt
+    function check(n) {
+      let bool = true;
+      if (n <= 1) {
+        bool = false;
+      } else {
+        if (n == 2 || n == 3) {
+          bool = true;
+        } else {
+          for (let i=2; i<=Math.sqrt(n); i++) {
+            if (n%i==0) {
+              bool = false;
+              break;
+            }
+          }
+        }
+      }
+      return bool;
+    }
+
+    //sum
+    function sumOfListPrime(x) {
+      let sum = 0;
+      for (let i=0; i<=x; i++) {
+        if (check(i)) {
+          sum+=i;
+        }
+      }
+      return sum;
+    }
+    document.write(sumOfListPrime(x));
+  </script>
+</body>
+</html>

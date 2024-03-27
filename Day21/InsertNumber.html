@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [16,29,30,5,10,15,20];
+    let x = +prompt("Nhập x");
+    let index = +prompt("Nhập vị trí muốn chèn");
+    function insertNumberToArray(x, index, arr) {
+      if (index >= 0 && index <= arr.length) {
+        arr.splice(index, 0, x);
+      }
+      return arr;
+    }
+
+    let newArr = insertNumberToArray(x, index, arr);
+    document.write(newArr);
+  </script>
+</body>
+</html>

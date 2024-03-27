@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id = "cv" width="1000" height="700" style="border: 1px solid">
+  </canvas>
+  <script>
+    class reactangle {
+      constructor(x, y, width, height, color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+      }
+
+      render(canvas) {
+          canvas.fillStyle = this.color
+          canvas.fillRect(this.x, this.y, this.width, this.height);
+      }
+    }
+    let hcn1 = new reactangle(10, 10, 200, 300, "#FF0000");
+    let canvas = document.getElementById('cv').getContext('2d');
+    hcn1.render(canvas);
+  </script>
+</body>
+</html>
