@@ -11,10 +11,17 @@
     let x = +prompt("Nhập x");
     let index = +prompt("Nhập vị trí muốn chèn");
     function insertNumberToArray(x, index, arr) {
+      let newArr = [];
       if (index >= 0 && index <= arr.length) {
-        arr.splice(index, 0, x);
+        for (let i = 0; i < index; i++) {
+          newArr.push(arr[i]);
+        }
+        newArr.push(x);
+        for (let i = index; i <= arr.length; i++) {
+          newArr.push(arr[i]);
+        }
       }
-      return arr;
+      return newArr;
     }
 
     let newArr = insertNumberToArray(x, index, arr);
