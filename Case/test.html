@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('heart.png'); /* Đường dẫn đến hình ảnh trái tim */
+  background-size: cover;
+}
+
+</style>
+<body>
+  
+  <script>
+          function creatHeart() {
+          for (let i = 0; i < 3; i++) {
+          let heart = document.createElement('div');
+          heart.classList.add('.heart');
+          heart.style.top = (10 + i * 35) + 'px'; // vertical position
+          heart.style.right = '10px'; // horizontal position
+          container.appendChild(heart);
+        }
+      }
+      creatHeart();
+  </script>
+</body>
+</html>
